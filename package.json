@@ -12,11 +12,5 @@
     "chalk": "^4.1.0",
     "deepmerge": "^4.2.2",
     "eslint": "^8.0.1"
-  },
-  "directories": {
-    "test": "test"
-  },
-  "publishConfig": {
-    "registry": "http://192.168.0.5:4873"
   }
 }
