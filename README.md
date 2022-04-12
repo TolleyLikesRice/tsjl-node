@@ -21,5 +21,7 @@ It outputs a JSON object that looks like this in the logfile:
 but like this in the console
 
 ```
-[2021-10-08 11:50:10] [discord-bot.mongodb-handler] [Info] Connected to Server!
+[2021-10-08 12:50:10 GMT+01] [discord-bot.mongodb-handler] [Info] Connected to Server!
 ```
+
+## [Docs](https://docs.tolley.dev/books/node/page/intro)
