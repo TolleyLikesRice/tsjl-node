@@ -32,7 +32,7 @@ let logger = new tsjl.Logger("foo", "bar", {
     stdout: {
         enable: false
     },
-    //webhook link where to send an embed, container the logged information
+    //webhook link where to send the embed containing the logged information
     webhook: {
         url: "https://discord.com/api/webhooks/123456789/abcdefghilmnopqrstvz" 
     }
