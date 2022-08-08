@@ -2,7 +2,7 @@
   "name": "tsjl-node",
   "version": "1.0.0",
   "description": "TSJL is a logger, that logs JSON, and is simple to use; hence the name.",
-  "main": "index.js",
+  "main": "ignorethismocha.js",
   "scripts": {
     "test": "node ignorethismocha.js"
   },
@@ -11,6 +11,7 @@
   "dependencies": {
     "chalk": "^4.1.0",
     "deepmerge": "^4.2.2",
-    "eslint": "^8.0.1"
+    "eslint": "^8.0.1",
+    "node-fetch": "^2.6.7"
   }
 }
