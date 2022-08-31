@@ -1,6 +1,6 @@
 {
   "name": "tsjl-node",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "TSJL is a logger, that logs JSON, and is simple to use; hence the name.",
   "main": "index.js",
   "scripts": {
