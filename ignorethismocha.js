@@ -24,10 +24,13 @@ logger.info("Testing json\n--\n--");
 logger = new tsjl.Logger("foo", "bar", {
     stdout: {
         json: true
+    },
+    webhook: {
+        url: "https://discord.com/api/webhooks/1234/abcd"
     }
 });
 logger.fatal("JSON");
-logger.error("JSON");
+logger.error("JSON", {"message": "Unexpected error"});
 logger.warn("JSON");
 logger.success("JSON");
 logger.info("JSON");

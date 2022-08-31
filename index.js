@@ -1,6 +1,7 @@
 const chalk = require("chalk");
 const merge = require("deepmerge");
 const fs = require("fs");
+const fetch = require("node-fetch");
 
 /* 
  * Internal Functions
@@ -34,6 +35,9 @@ const logger = new tsjl.Logger("tsjl-example-app", "database-handler")
                 enable: true,
                 level: 4,
                 json: false
+            },
+            webhook: {
+                url: null,
             },
             file: [{
                 path: "./log.log",
@@ -179,6 +183,34 @@ logger.error("Failed to connect to database, retrying in 30 seconds")
 */
     error(msg, extra) {
         this.log("ERROR", msg, extra);
+        if(this.outputSettings.webhook.url){
+            if (extra.constructor === {}.constructor)
+                extra = JSON.stringify(extra, null, 4);
+            fetch(this.outputSettings.webhook.url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    content: null,
+                    embeds: [
+                        {
+                            title: "Error",
+                            description: `${msg}\n\`\`\`json\n${extra}\n\`\`\``,
+                            color: 16711680,
+                        }
+                    ],
+                    attachments: []         
+                })
+            })
+                .then(res => {
+                    if(res.status != "204")
+                        this.log("FATAL", "Unexpected response", { status: res.status, message: res.statusText });
+                })
+                .catch(err => {
+                    this.log("FATAL", "Webhook failed to send", { error: err });
+                });
+        }
     }
 
 
