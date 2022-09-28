@@ -30,6 +30,8 @@ logger = new tsjl.Logger("foo", "bar", {
     }
 });
 logger.fatal("JSON");
+logger.error("JSON | Blank extra");
+logger.error("JSON", "Non json extra");
 logger.error("JSON", {"message": "Unexpected error"});
 logger.warn("JSON");
 logger.success("JSON");

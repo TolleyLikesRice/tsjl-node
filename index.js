@@ -184,8 +184,10 @@ logger.error("Failed to connect to database, retrying in 30 seconds")
     error(msg, extra) {
         this.log("ERROR", msg, extra);
         if(this.outputSettings.webhook.url){
-            if (extra.constructor === {}.constructor)
-                extra = JSON.stringify(extra, null, 4);
+            if (extra != undefined && extra.constructor === {}.constructor)
+                extra = `\n\`\`\`json\n${JSON.stringify(extra, null, 4)}\n\`\`\``;
+            else if(extra == undefined)
+                extra = "";
             fetch(this.outputSettings.webhook.url, {
                 method: "POST",
                 headers: {
@@ -196,7 +198,7 @@ logger.error("Failed to connect to database, retrying in 30 seconds")
                     embeds: [
                         {
                             title: "Error",
-                            description: `${msg}\n\`\`\`json\n${extra}\n\`\`\``,
+                            description: `${msg}\n${extra}`,
                             color: 16711680,
                         }
                     ],
