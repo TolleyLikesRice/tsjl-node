@@ -212,6 +212,8 @@ logger.error("Failed to connect to database, retrying in 30 seconds")
                 .catch(err => {
                     this.log("FATAL", "Webhook failed to send", { error: err });
                 });
+        } else {
+            this.log("FATAL", "Webhook URL was is null");
         }
     }
 
