@@ -1,3 +1,5 @@
+# Archived - Not touched for two years, and half-arsed to start with. No need to reinvent the wheel.
+
 # Tolley's Simple JSON Logger - Node.JS
 
 TSJL is a logger, that logs JSON, and is simple to use; hence the name.
